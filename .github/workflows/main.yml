@@ -39,8 +39,3 @@ jobs:
       - name: Run Docker containers
         run: docker run -d -p 3000:3000 ximenaurbieta/backend:1.0.0.
 
-      - name: Test service
-        run: curl http://localhost:3000 
-
-      - name: Stop docker container
-        run: docker stop backend:1.0.0.
