@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Publish Docker image
+name: CI Docker image
 
 # Controls when the workflow will run
 on:
@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  backend:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -28,10 +28,13 @@ jobs:
       # login into Docker Hub
 
       - name: Log in to DockerHub
-        run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Pull Docker images
-        run: docker pull ximenaurbieta/frontend:1.0.0.
+        run: docker pull ${{ secrets.DOCKER_USER}}/backend:1.0.0.
 
       - name: Run Docker containers
-        run: docker run -d -p 5000:5000 ximenaurbieta/frontend:1.0.0.
+        run: docker run -d -p 3000:3000 ximenaurbieta/backend:1.0.0.
