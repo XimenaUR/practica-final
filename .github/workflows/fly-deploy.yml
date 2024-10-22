@@ -6,12 +6,25 @@ on:
     branches:
       - deploy-gitactions
 jobs:
-  deploy:
-    name: Deploy app
+  integration:
     runs-on: ubuntu-latest
-    concurrency: deploy-group    # optional: ensure only one action runs at a time
     steps:
-      - uses: actions/checkout@v4
+      - name: Estoy ejecuntado el Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run test
+        run: npm run test
+
+  deploy:
+    runs-on: ubuntu-latest
+    concurrency: deploy-gropup
+    steps:
+      - name: Estoy ejecuntado el Checkout
+        uses: actions/checkout@v4
+
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - run: flyctl deploy --remote-only
         env:

@@ -8,5 +8,5 @@ Descripción del ejercicio:
 En este ejercicio, hay que configurar GitHub Actions para implementar un flujo de integración continua (CI) y despliegue continuo (CD) de una aplicación en Fly.io. La aplicación debe pasar por los siguientes pasos cuando se realice un commit en la rama deploy-gitactions.
 
 1. Ejecución de los test: Antes de desplegar la aplicación, deben ejecutarse los tests para asegurarse de que todo funciona correctamente.
-2. Construcción de la aplicación: Si los tests son exitosos, se construirá la aplicación en un contenedor Docker.
-3. Despliegue en Fly.io: Tras la construcción, la aplicación debe ser desplegada automáticamente en Fly.io.
+
+2. Despliegue en Fly.io: Tras la construcción, la aplicación debe ser desplegada automáticamente en Fly.io.
