@@ -38,3 +38,9 @@ jobs:
 
       - name: Run Docker containers
         run: docker run -d -p 3000:3000 ximenaurbieta/backend:1.0.0.
+
+      - name: Test service
+        run: if [ $(curl -LI http://localhost:3000 -o /dev/null -w '%{http_code}\n' -s) == "200" ]; then exit 0; fi
+
+      - name: Stop docker container
+        run: docker stop ximenaurbieta/backend:1.0.0.
