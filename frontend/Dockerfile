@@ -1,6 +1,7 @@
 
 # Adjust NODE_VERSION as desired
 FROM node:22.9.0-alpine
+ENV PORT=3001
 
 # Set directory
 WORKDIR /app
@@ -16,7 +17,7 @@ COPY . .
 
 
 # Start the server by default, this can be overwritten at runtime
-EXPOSE 8081
+EXPOSE 3001
 
 # Command
 CMD [ "npm", "run", "start" ]
