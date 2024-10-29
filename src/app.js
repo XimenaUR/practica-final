@@ -5,7 +5,7 @@ app.use(express.json());
 
 // Ruta básica
 app.get('/', (req, res) => {
-    res.status(200).json({ message: 'Welcome to the new developers from Fly.io third time' });
+    res.status(200).json({ message: 'Welcome to the new developers from Fly.io practica final!' });
 });
 
 // Ruta de ejemplo para pruebas
