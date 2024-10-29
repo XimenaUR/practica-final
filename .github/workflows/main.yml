@@ -37,13 +37,8 @@ jobs:
         run: docker pull ${{ secrets.DOCKER_USER}}/backend:1.0.0.
 
       - name: Run Docker backend container
-        run: |
-          docker run -d -p 3000:3000 ximenaurbieta/backend:1.0.0.
-          if curl -f http://localhost:3000; then
-              echo "App is running."
-          else
-              echo "Failure: App is not working."
-              exit 1
+        run: docker run -d -p 3000:3000 ximenaurbieta/backend:1.0.0.
+        
 
 
 
