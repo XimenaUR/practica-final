@@ -7,5 +7,3 @@ En esta primera parte deberás crear un Dockerfile que defina cómo se construir
 
 Parte 2: Despliegue temporal de la imágen Docker en GitHub Actions.
 En esta segunda parte del ejercicio deberás utiizar GitHub Actions para desplegar temporalmente una de las imágenes que subiste a DockerHub. El objetivo es que GitHub Actions construya y ejecute la imágen Docker como parte de un proceso de integración continua (CI), sin necesidad de mantener activo el servicio después de la ejecución.
-
-prueba
