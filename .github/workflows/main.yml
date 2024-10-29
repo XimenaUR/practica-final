@@ -15,8 +15,8 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  backend:
+  # This workflow contains a single job to run frontend
+  frontend:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -34,8 +34,16 @@ jobs:
           password: ${{ secrets.DOCKER_TOKEN }}
 
       - name: Pull Docker images
-        run: docker pull ${{ secrets.DOCKER_USER}}/backend:1.0.0.
+        run: docker pull ${{ secrets.DOCKER_USER}}/frontend:1.0.0.
 
-      - name: Run Docker containers
-        run: docker run -d -p 3000:3000 ximenaurbieta/backend:1.0.0.
+      - name: Run Docker frontend container
+        run: |
+          docker run -d -p 3001:3001 ximenaurbieta/frontend:1.0.0.
+          if curl -f http://localhost:3001; then
+              echo "App is running."
+          else
+              echo "Failure: App is not working."
+              exit 1
+
+
 
